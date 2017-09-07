@@ -1,0 +1,82 @@
+
+body { 
+	margin: 30px 0 0 80px;
+}
+
+#imageCarousel { 
+	width: 900px; 
+	height: 500px; 
+	border: 3px solid #333; 
+	overflow: hidden; 
+	position: relative;
+}
+
+#pic { 
+	/* 7个图片尺寸900*7 */
+	position: absolute; 
+	width: 6300px;  
+	height: 400px; 
+	left: -900px;
+	z-index: 1;
+}
+
+#pic img { 
+	float: left;
+}
+
+#buttons { 
+	position: absolute; 
+	height:30px; 
+	width: 180px; 	
+	left: 360px;
+	bottom: 20px; 
+	background: pink;
+	z-index: 2;
+}
+
+#buttons span { 
+	display: inline-block;
+	cursor: pointer; 
+	float: left; 
+	width: 12px; 
+	height: 12px; 
+	border: 3px solid white;
+	border-radius: 50%; 
+	margin-left: 15px;
+
+}
+
+
+.arrow { 
+	position: absolute; 
+	z-index: 2; 
+	cursor: pointer; 
+	display: none; 
+	text-decoration: none;
+	line-height: 70px; 
+	text-align: center; 
+	font-size: 80px; 
+	font-weight: 900; 
+	width: 80px; 
+	height: 80px;  
+	top: 230px;  
+	color: white;
+	text-shadow:3px 3px 3px #162866;
+	opacity: 0.7;
+}
+
+.arrow:hover { 
+	opacity: 1;
+}
+
+#imageCarousel:hover .arrow { 
+	display: block;
+}
+
+#pre { 
+	left: 20px;
+}
+
+#next { 
+	right: 20px;
+}
