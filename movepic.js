@@ -100,7 +100,6 @@ for (var i = 0; i < btn_span.length; i++) {
       var j = parseInt(this.id[1]);//获取当前按钮是第几个按钮
       var a = -900 * (j - x); //移动的距离      
       move(a);
-      // index = myIndex;
       for (var i = 0; i < btn_span.length; i++) {
         btn_span[i].className = '';
       }
