@@ -6,15 +6,8 @@ var imageCarousel = document.getElementById('imageCarousel');
 //获取图片集合
 var pic = document.getElementById('pic');
 
-//获取小圆圈按钮的集合
+//获取小圆圈按钮的集合s
 var btn_span = document.getElementById('buttons').getElementsByTagName('span');
-
-//获取每个小圆圈按钮
-var b1 = document.getElementById('b1');
-var b2 = document.getElementById('b2');
-var b3 = document.getElementById('b3');
-var b4 = document.getElementById('b4');
-var b5 = document.getElementById('b5');
 
 
 //获取左箭头
@@ -32,6 +25,7 @@ function move(change) {
     //设置定时器让图片运动切换
     var speed = change/5;//每次移动的距离，分5次移动；
     run();
+     //定时器
     function run () {
       if ( (speed > 0 && parseInt(pic.offsetLeft) < Left)
       	|| (speed < 0 && parseInt(pic.offsetLeft) > Left)) {
@@ -39,7 +33,6 @@ function move(change) {
        pic.style['left'] = parseInt(pic.offsetLeft) + speed +'px';
       //超时定时器
        setTimeout(run,50);//每次运动间隔时间，所以切换一张图片运动时间为5*50=250毫秒
-
       } else {
         //切换图片
       	pic.style['left'] = Left + 'px';
@@ -60,12 +53,6 @@ for (var i = 0; i < btn_span.length; i++) {
   btn_span[i].className = '';
 }
 btn_span[0].className = 'on';
-
-
-// //按钮切换
-// function btn (){
-
-// }
 
 
 //右箭头点击触发然后pic改变左距离
@@ -103,7 +90,24 @@ pre.addEventListener('click', function () {
 });
 
 
-
+//点击按钮会跳到对应按钮图片位置并按钮加上样式
+for (var i = 0; i < btn_span.length; i++) {
+    btn_span[i].addEventListener('click', function () {
+      if(this.className == 'on') {
+            return;
+       }
+      var x =  Math.floor(parseInt(pic.offsetLeft)/(-900));
+      var j = parseInt(this.id[1]);//获取当前按钮是第几个按钮
+      var a = -900 * (j - x); //移动的距离      
+      move(a);
+      // index = myIndex;
+      for (var i = 0; i < btn_span.length; i++) {
+        btn_span[i].className = '';
+      }
+      this.className = 'on';
+    })
+      
+}
 
 
 
